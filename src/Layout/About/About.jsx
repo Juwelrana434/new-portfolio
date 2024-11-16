@@ -2,7 +2,7 @@ const About = () => {
   return (
     <div className="mt-16 px-4 lg:px-20">
       <div className="text-center mb-10">
-        <p className="text-2xl font-semibold text-primary">About Me</p>
+        <p className="text-2xl font-semibold">About Me</p>
         <p className="text-4xl font-bold text-gray-800 mt-2">Know Me More</p>
       </div>
 
