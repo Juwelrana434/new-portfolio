@@ -75,7 +75,7 @@ const Navbar = ({
   contactFormRef
 }) => {
   return (
-    <div className="max-w-screen-xl mx-auto sticky z-50 top-0 bg-gradient-to-r from-green-500 to-blue-500">
+    <div className="max-w-screen-xl mx-auto sticky z-50 top-0 bg-gradient-to-r from-green-500 to-[#88f2e7]">
       <div className="navbar px-4 py-2">
         <div className="navbar-start flex items-center">
           {/* Dropdown for mobile screens */}

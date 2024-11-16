@@ -27,8 +27,8 @@ const Banner = ({ scrollToSection, aboutRef, projectRef }) => {
                 crafted code and user-centric design.
               </p>
             </div>
-            <button className="btn btn-primary mr-4" onClick={() => scrollToSection(aboutRef)}>About Me</button>
-            <button className="btn btn-primary" onClick={() => scrollToSection(projectRef)}>My Work</button>
+            <button className="btn btn-accent mr-4" onClick={() => scrollToSection(aboutRef)}>About Me</button>
+            <button className="btn btn-accent" onClick={() => scrollToSection(projectRef)}>My Work</button>
           </div>
         </div>
       </div>

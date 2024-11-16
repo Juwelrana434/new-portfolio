@@ -55,7 +55,7 @@ const Personal = () => {
               <p><strong>Phone:</strong> 01723954334</p>
               <p><strong>Email:</strong> jewel.rana434@gmail.com</p>
             </div>
-            <button className="btn btn-primary mt-6">
+            <button className="btn btn-accent mt-6">
               <a href={resume} download="Md_Juwel_Rana_Resume.pdf" className="p-2 text-white">
                 Download Resume
               </a>

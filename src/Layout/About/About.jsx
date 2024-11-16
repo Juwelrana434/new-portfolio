@@ -7,7 +7,7 @@ const About = () => {
       </div>
 
       <p className="text-3xl my-6 text-center">
-        Hi, I'm <span className="font-bold text-primary">Md Juwel Rana</span>
+        Hi, I'm <span className="font-bold text-gradient-to-r from-green-500 to-[#00D7C0]">Md Juwel Rana</span>
       </p>
       
       <p className="text-xl text-gray-700 mb-6 text-center lg:text-left">

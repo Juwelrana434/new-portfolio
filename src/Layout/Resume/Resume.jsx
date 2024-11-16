@@ -1,7 +1,7 @@
 const Resume = () => {
   return (
     <div className="my-16 px-4 lg:px-20">
-      <p className="text-2xl font-semibold text-center text-primary">Resume</p>
+      <p className="text-2xl font-semibold text-center">Resume</p>
       <h1 className="text-3xl font-bold text-center my-6 text-gray-800">
         A Summary of My Resume
       </h1>
