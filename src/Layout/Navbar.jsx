@@ -75,7 +75,7 @@ const Navbar = ({
   contactFormRef
 }) => {
   return (
-    <div className="max-w-screen-xl mx-auto sticky z-50 top-0">
+    <div className="max-w-screen-xl mx-auto sticky z-50 top-0 bg-gradient-to-r from-green-500 to-blue-500">
       <div className="navbar px-4 py-2">
         <div className="navbar-start flex items-center">
           {/* Dropdown for mobile screens */}
@@ -105,7 +105,8 @@ const Navbar = ({
           </div>
 
           {/* Logo or Brand Name */}
-           <p className="btn btn-ghost text-xl text-green-700">Juwel</p>
+          <p className="btn btn-ghost text-xl text-transparent bg-clip-text bg-gradient-to-r from-black to-red-500">Juwel</p>
+
          
         </div>
 
