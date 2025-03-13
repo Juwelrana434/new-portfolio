@@ -1,138 +1,97 @@
-// import { FaEnvelope } from "react-icons/fa";
-
-// const Navbar = () => {
-
- 
-//     return (
-//         <div className="max-w-screen-xl mx-auto sticky z-50 top-0">
-//             <div className="navbar bg-[#197ee4] px-4 py-2">
-//                 <div className="navbar-start flex items-center">
-//                     {/* Dropdown for mobile screens */}
-//                     <div className="dropdown block lg:hidden">
-//                         <div tabIndex={0} role="button" className="btn btn-ghost">
-//                             <svg
-//                                 xmlns="http://www.w3.org/2000/svg"
-//                                 className="h-5 w-5"
-//                                 fill="none"
-//                                 viewBox="0 0 24 24"
-//                                 stroke="currentColor">
-//                                 <path
-//                                     strokeLinecap="round"
-//                                     strokeLinejoin="round"
-//                                     strokeWidth="2"
-//                                     d="M4 6h16M4 12h8m-8 6h16" />
-//                             </svg>
-//                         </div>
-//                         <ul
-//                             tabIndex={0}
-//                             className="menu menu-sm dropdown-content bg-base-100 z-[1] mt-3 p-2 shadow rounded-2xl">
-//                             <li><a>Skills</a></li>
-//                             <li><a>Project</a></li>
-//                             <li><a>About Me</a></li>
-//                             <li><a>Resume</a></li>
-//                         </ul>
-//                     </div>
-
-//                     {/* Logo or Brand Name */}
-//                     <a className="btn btn-ghost text-xl text-white">Juwel</a>
-//                 </div>
-
-//                 {/* Centered Menu (Hidden on small screens, visible on larger ones) */}
-//                 <div className="navbar-center hidden lg:flex">
-//                     <ul className="menu menu-horizontal px-1">
-//                         <li><a>Skills</a></li>
-//                         <li><a>Project</a></li>
-//                         <li><a>About Me</a></li>
-//                         <li><a>Resume</a></li>
-//                     </ul>
-//                 </div>
-
-//                 {/* Email Icon and Text */}
-//                 <div className="navbar-end flex items-center">
-//                     <p className="mr-2 text-white text-lg hidden sm:block"><FaEnvelope /></p>
-                    
-//                     <button className="text-white text-lg hidden sm:block">jewel.rana434@gmail.com</button>
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default Navbar;
-
 import { FaEnvelope } from "react-icons/fa";
+import { motion } from "framer-motion";
 import img from "../../Image/email.jpg";
-import WhatsAppButton from './WhatsAppButton/WhatsAppButton';
+import WhatsAppButton from "./WhatsAppButton/WhatsAppButton";
 
+const Navbar = ({ scrollToSection, aboutRef, resumeRef, skillRef, projectRef, contactFormRef }) => {
+  const sections = {
+    skills: skillRef,
+    projects: projectRef,
+    "about me": aboutRef,
+    resume: resumeRef,
+  };
 
-const Navbar = ({
-  scrollToSection,
-  aboutRef,
-  personalRef,
-  resumeRef,
-  skillRef,
-  projectRef,
-  contactFormRef
-}) => {
   return (
-    <div className="max-w-screen-xl mx-auto sticky z-50 top-0 bg-gradient-to-r from-green-500 to-[#88f2e7]">
-      <div className="navbar px-4 py-2">
-        <div className="navbar-start flex items-center">
-          {/* Dropdown for mobile screens */}
-          <div className="dropdown block lg:hidden">
-            <div tabIndex={0} role="button" className="btn btn-ghost">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16" />
-              </svg>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 z-[1] mt-3 p-2 shadow  font-semibold">
-              <li><a onClick={() => scrollToSection(skillRef)}>Skills</a></li>
-               <li><a onClick={() => scrollToSection(projectRef)}>Project</a></li>
-              <li><a onClick={() => scrollToSection(aboutRef)}>About Me</a></li> 
-              <li><a onClick={() => scrollToSection(resumeRef)}>Resume</a></li>
-            </ul>
-          </div>
-
-          {/* Logo or Brand Name */}
-          <p className="btn btn-ghost text-xl text-transparent bg-clip-text bg-gradient-to-r from-black to-red-500">Juwel</p>
-
-         
+    <motion.div 
+      initial={{ opacity: 0, y: -20 }} 
+      animate={{ opacity: 1, y: 0 }} 
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="max-w-screen-xl mx-auto sticky top-0 z-[100] bg-gradient-to-r from-green-500 to-[#88f2e7] shadow-lg"
+    >
+      <div className="navbar px-6 py-3 flex justify-between items-center">
+        
+        {/* Mobile Dropdown */}
+        <div className="dropdown block lg:hidden">
+          <button tabIndex={0} role="button" className="btn btn-ghost" aria-label="Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white transition-transform duration-300 hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+            </svg>
+          </button>
+          <motion.ul 
+            tabIndex={0} 
+            initial={{ opacity: 0, y: -10 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.3 }} 
+            className="menu menu-sm dropdown-content absolute w-40 bg-white shadow-lg mt-3 rounded-lg font-semibold overflow-hidden"
+          >
+            {Object.keys(sections).map((key) => (
+              <li key={key}>
+                <a className="hover:bg-green-300 transition" onClick={() => scrollToSection(sections[key])}>
+                  {key.charAt(0).toUpperCase() + key.slice(1)}
+                </a>
+              </li>
+            ))}
+          </motion.ul>
         </div>
 
-        {/* Centered Menu (Hidden on small screens, visible on larger ones) */}
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 font-semibold">
-            <li><a onClick={() => scrollToSection(skillRef)}>Skills</a></li>
-            <li><a onClick={() => scrollToSection(projectRef)}>Project</a></li>
-            <li><a onClick={() => scrollToSection(aboutRef)}>About Me</a></li>
-            <li><a onClick={() => scrollToSection(resumeRef)}>Resume</a></li>
+        {/* Logo */}
+        <motion.p 
+          whileHover={{ scale: 1.1 }} 
+          className="btn btn-ghost text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-black to-red-500"
+        >
+          Juwel
+        </motion.p>
+
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex">
+          <ul className="menu menu-horizontal px-1 font-semibold space-x-6">
+            {Object.keys(sections).map((key) => (
+              <motion.li 
+                key={key}
+                whileHover={{ scale: 1.1, color: "#ff4500" }}
+                transition={{ duration: 0.3 }}
+              >
+                <a onClick={() => scrollToSection(sections[key])}>
+                  {key.charAt(0).toUpperCase() + key.slice(1)}
+                </a>
+              </motion.li>
+            ))}
           </ul>
         </div>
 
-        {/* Email Icon and Text */}
-        <div className="navbar-end flex items-center">
-          {/* <p className="mr-2 text-white text-lg hidden sm:block"><FaEnvelope /></p> */}
-         
-          <p className="mr-4"><WhatsAppButton></WhatsAppButton></p>
-          <button className="text-white text-lg" onClick={() => scrollToSection(contactFormRef)}><img src={img} alt="" className="w-12 h-12" /></button>
+        {/* Contact Icons */}
+        <div className="flex items-center gap-4">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }} 
+            animate={{ opacity: 1, scale: 1 }} 
+            transition={{ delay: 0.5, duration: 0.4 }}
+          >
+            <WhatsAppButton />
+          </motion.div>
+
+          <motion.button 
+            whileHover={{ scale: 1.1, rotate: 5 }} 
+            transition={{ type: "spring", stiffness: 300 }}
+            className="text-white text-lg"
+            onClick={() => scrollToSection(contactFormRef)}
+            aria-label="Contact via Email"
+          >
+            <img src={img} alt="Email Icon" className="w-12 h-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300" loading="lazy" />
+          </motion.button>
         </div>
-        
       </div>
-    </div>
+    </motion.div>
   );
 };
 
 export default Navbar;
-
-
